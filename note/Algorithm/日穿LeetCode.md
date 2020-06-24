@@ -1,3 +1,10 @@
+# Thinking
+1. 利用哈希表
+
+
+----
+# Problems
+
 1. Two Sum
     <br>
     Given nums=[2,7,11,15],target=9;
