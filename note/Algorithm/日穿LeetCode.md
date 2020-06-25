@@ -25,3 +25,29 @@ func twoSum(nums []int, target int) []int {
 ```
 方法1:暴力法<br>
 方法2:哈希表法，以nums[i]为key，i为value即可快速找出
+
+2. Add Two Numbers
+```go
+func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
+    dummy := new(ListNode)
+    curr := dummy
+    carry := 0
+
+    for (l1 != nil || l2 != nil || carry > 0){
+        curr.Next = new(ListNode)
+        curr = curr.Next
+        if l1 != nil {
+            carry += l1.Val
+            l1 = l1.Next
+        }
+        if l2 != nil {
+            carry += l2.Val
+            l2 = l2.Next
+        }
+        curr.Val = carry % 10
+        carry /= 10
+    }
+    return dummy.Next
+}
+```
+很简单，
