@@ -50,4 +50,6 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
     return dummy.Next
 }
 ```
-很简单，
+很简单，没什么好说的题目
+
+3. 
