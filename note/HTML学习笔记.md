@@ -34,3 +34,38 @@ URN是在命名空间内寻找资源如ISBN图书编码，UUID统一唯一识别
 >>* ```&emsp```**Unicode编码U+2003**[ref1](https://www.fileformat.info/info/unicode/char/2003/index.htm) 
 它叫“全角空格”，全称是Em Space，em是字体排印学的计量单位，相当于当前指定的点数。例如，1 em在16px的字体中就是16px。此空格也传承空格家族一贯的特性：透明的，此空格也有个相当稳健的特性，就是其占据的宽度正好是1个中文宽度，而且基本上不受字体影响。
 
+---
+## DOCTYPE
+用于标示该HTML文档使用了哪个HTML标准<br>
+在HTML4.01中又分为Transitional、Strict、Frameset。<br>
+对于不同的标准，支持的元素不同，例如，```<aside>```元素只在HTML5中支持。
+H5之前，需要引用DTD（Document Type Definition)
+>DTD用于定义合法的XML文档构建模块,如下为一电视台的某一实例
+```
+<!DOCTYPE TVSCHEDULE [
+<!ELEMENT TVSCHEDULE (CHANNEL+)>
+<!ELEMENT CHANNEL (BANNER,DAY+)>
+<!ELEMENT BANNER (#PCDATA)>
+<!ELEMENT DAY (DATE,(HOLIDAY|PROGRAMSLOT+)+)>
+<!ELEMENT HOLIDAY (#PCDATA)>
+<!ELEMENT DATE (#PCDATA)>
+<!ELEMENT PROGRAMSLOT (TIME,TITLE,DESCRIPTION?)>
+<!ELEMENT TIME (#PCDATA)>
+<!ELEMENT TITLE (#PCDATA)> 
+<!ELEMENT DESCRIPTION (#PCDATA)>
+
+<!ATTLIST TVSCHEDULE NAME CDATA #REQUIRED>
+<!ATTLIST CHANNEL CHAN CDATA #REQUIRED>
+<!ATTLIST PROGRAMSLOT VTR CDATA #IMPLIED>
+<!ATTLIST TITLE RATING CDATA #IMPLIED>
+<!ATTLIST TITLE LANGUAGE CDATA #IMPLIED>
+]>
+```
+现在DTD基本上由XML Schema（XSD）替代
+>在构建DTD过程中：<br>
+PCDATA(parsed character data)会被解析的字符数据
+CDATA(character data)不会被解析的字符数据
+---
+
+## HTML空元素
+标准HTML元素中，某些元素是没有内容的，称为空元素，如``<br>``
