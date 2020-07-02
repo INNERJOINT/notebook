@@ -1,3 +1,5 @@
+
+### type|dtype|astype
 ```python
 import numpy as np
 a=[1,2,3]
@@ -27,4 +29,10 @@ print(e)
 #>>>[1 1 1 1 1 2 2 2 2 2 3 3 3 3 3 4 4 4 4 5]
 print(e.dtype)
 #>>>int64
+```
+
+### transpose
+```python
+x.transpose((0,1)) #original location
+x.transpose((1,0)) #swap x and y aixs
 ```
