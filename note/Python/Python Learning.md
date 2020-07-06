@@ -93,3 +93,22 @@ ZeroDivisionError: integer division or modulo by zero
 11|'{:x}'.format(11)|b|十六进制
 11|'{:#x}'.format(11)|0xb|十六进制带0x
 11|'{:#X}'.format(11)	|0XB|十六进制带0X
+
+### tunple
+* 定义空tuple：t = ()
+* 定义只有1的tuple: t = (1,)#不加，会把t当作1
+* 可变tuple: t = (1,2,['A','B'])#t[2]为list，可变化
+
+### dict
+* 判断key是否存在两种方法：‘XXX' in dict； dict.get('XXX')
+* dict内部存放的顺序和key放入的顺序是没有关系的
+#### dict与list对比
+和list比较，dict有以下几个特点：
+
+查找和插入的速度极快，不会随着key的增加而变慢；
+需要占用大量的内存，内存浪费多。
+而list相反：
+
+查找和插入的时间随着元素的增加而增加；
+占用空间小，浪费内存很少。
+所以，dict是用空间来换取时间的一种方法。
