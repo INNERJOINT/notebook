@@ -112,3 +112,5 @@ ZeroDivisionError: integer division or modulo by zero
 查找和插入的时间随着元素的增加而增加；
 占用空间小，浪费内存很少。
 所以，dict是用空间来换取时间的一种方法。
+
+### set

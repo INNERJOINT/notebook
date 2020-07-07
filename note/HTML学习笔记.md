@@ -71,3 +71,70 @@ CDATA(character data)不会被解析的字符数据
 
 ## HTML空元素
 标准HTML元素中，某些元素是没有内容的，称为空元素，如``<br>``
+
+## Test
+```
+5.在下列的 HTML 中，哪个可以添加背景颜色？
+您的回答：<background>yellow</background>
+
+正确答案：<body bgcolor="yellow">
+
+6.请选择产生粗体字的 HTML 标签：
+您的回答：<bold>
+
+正确答案：<b>
+
+7.请选择产生斜体字的 HTML 标签：
+您的回答：<italics>
+
+正确答案：<i>
+
+9.如何制作电子邮件链接？
+您的回答：<mail href="xxx@yyy">
+
+正确答案：<a href="mailto:xxx@yyy">
+
+10.如何在新窗口打开链接？
+您的回答：<a href="url" target="new">
+
+正确答案：<a href="url" target="_blank">
+
+
+12.请选择可以使单元格中的内容进行左对齐的正确 HTML 标签：
+您的回答：<td align="left">
+
+13.如何产生带有数字列表符号的列表？
+您的回答：<ol>
+
+14.如何产生带有圆点列表符号的列表？
+您的回答：<dl>
+
+正确答案：<ul>
+
+15.在下列的 HTML 中，哪个可以产生复选框？
+您的回答：<input type="check">
+
+正确答案：<input type="checkbox">
+
+16.在下列的 HTML 中，哪个可以产生文本框？
+您的回答：<input type="text">
+
+17.在下列的 HTML 中，哪个可以产生下拉列表？
+您的回答：<input type="dropdown">
+
+正确答案：<select>
+
+18.在下列的 HTML 中，哪个可以产生文本区（textarea）？
+您的回答：<input type="textarea">
+
+正确答案：<textarea>
+
+19.在下列的 HTML 中，哪个可以插入图像？
+您的回答：<image src="image.gif">
+
+正确答案：<img src="image.gif">
+
+20.在下列的 HTML 中，哪个可以插入背景图像？
+您的回答：<background img="background.gif">
+
+正确答案：<body background="background.gif">```
