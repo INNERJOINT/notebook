@@ -134,3 +134,37 @@ ZeroDivisionError: integer division or modulo by zero
 #前10个数，每2个数取一次
 >>> L[:10:2]
 ```
+
+### 列表生成器
+```python
+>>> [m + n for m in 'ABC' for n in 'XYZ']
+['AX', 'AY', 'AZ', 'BX', 'BY', 'BZ', 'CX', 'CY', 'CZ']
+>>> [x for x in range(1, 11) if x % 2 == 0]
+[2, 4, 6, 8, 10]
+>>> [x if x % 2 == 0 else -x for x in range(1, 11)]
+[-1, 2, -3, 4, -5, 6, -7, 8, -9, 10]
+```
+
+### 生成器
+产生生成器的两种方法：
+* 把列表生成器的[]改为()
+```python
+>>> L = [x * x for x in range(10)]
+>>> L
+[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+>>> g = (x * x for x in range(10))
+>>> g
+<generator object <genexpr> at 0x1022ef630>
+```
+* 使用yield代替return将函数变成生成器
+
+调用生成器的方法：
+* 使用next（）
+* 使用for循环
+
+### 迭代器
+凡是可作用于for循环的对象都是Iterable类型；
+
+凡是可作用于next()函数的对象都是Iterator类型，它们表示一个惰性计算的序列；
+
+集合数据类型如list、dict、str等是Iterable但不是Iterator，不过可以通过iter()函数获得一个Iterator对象。
