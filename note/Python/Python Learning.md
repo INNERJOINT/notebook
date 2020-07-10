@@ -168,3 +168,59 @@ ZeroDivisionError: integer division or modulo by zero
 凡是可作用于next()函数的对象都是Iterator类型，它们表示一个惰性计算的序列；
 
 集合数据类型如list、dict、str等是Iterable但不是Iterator，不过可以通过iter()函数获得一个Iterator对象。
+
+###  高阶函数
+函数名也是变量名，不但可以指定新的函数名如x=abs,也可以把函数名当成参数传给新的函数如def add(x,y,f):return f(x)+f(y)
+* map()函数,第一个参数f是函数本身，第二个参数是一个Iterator
+```python
+>>> def f(x):
+...     return x * x
+...
+>>> r = map(f, [1, 2, 3, 4, 5, 6, 7, 8, 9])
+>>> list(r)
+[1, 4, 9, 16, 25, 36, 49, 64, 81]
+```
+* reduce()函数，把一个函数作用在一个序列上，该函数必须接受两个参数
+```python
+>>> from functools import reduce
+>>> def fn(x, y):
+...     return x * 10 + y
+...
+>>> reduce(fn, [1, 3, 5, 7, 9])
+13579
+```
+将两者结合起来可以整理成一个str2int函数
+```python
+from functools import reduce
+
+DIGITS = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9}
+
+def str2int(s):
+    def fn(x, y):
+        return x * 10 + y
+    def char2num(s):
+        return DIGITS[s]
+    return reduce(fn, map(char2num, s))
+```
+* filter()函数，接受一个函数和序列
+```python
+def is_odd(n):
+    return n % 2 == 1
+
+list(filter(is_odd, [1, 2, 4, 5, 6, 9, 10, 15]))
+```
+**filter和map一样，返回的是一个Iterator，是一个惰性序列，要强迫完成计算结果，可以使用list（）获取所有结果**
+
+* sorted(),第一个参数排序的序列，第二个key为排序函数，reverse为逆向排序
+```python
+L = [('Bob', 75), ('Adam', 92), ('Bart', 66), ('Lisa', 88)]
+def by_name(t):
+    return t[0]
+
+L2 = sorted(L, key=by_name)
+print(L2)
+```
+### 匿名函数lambda
+只能有一个表达式的函数
+
+### 装饰器
