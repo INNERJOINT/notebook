@@ -224,3 +224,14 @@ print(L2)
 只能有一个表达式的函数
 
 ### 装饰器
+
+### 偏函数
+一种用于固定一些函数的参数值的方法，导入functool包，使用如下：
+```python
+>>> import functools
+>>> int2 = functools.partial(int, base=2)
+>>> int2('1000000')
+64
+>>> int2('1010101')
+85
+```
