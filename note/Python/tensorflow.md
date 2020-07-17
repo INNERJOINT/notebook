@@ -1,7 +1,7 @@
 * ```python
     tf.compat.v1.placeholder(dtype, shape=None, name=None)
-* shape[None,N],None代表一维维度未知
-* ```python
+* shape[None,N],None代表一维维度未知<br>
+```python
     tf.compat.v1.get_variable(
     name, shape=None, dtype=None, initializer=None, regularizer=None,
     trainable=None, collections=None, caching_device=None, partitioner=None,
@@ -9,4 +9,4 @@
     synchronization=tf.VariableSynchronization.AUTO,
     aggregation=tf.compat.v1.VariableAggregation.NONE
     )
-* 
+
