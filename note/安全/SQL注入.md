@@ -24,7 +24,7 @@ union all只是简单的将两个结果合并后就返回。这样，如果返�
 *  is_srvrolemember ('sysadmin')函数是用来判断当前的数据用户是否属于管理员组权限
 ---
 ## 高级绕过方法
-### 利用字符串转换来绕过php检测
+### 利用字符串编码来绕过php检测
 Mysql字段的字符集和php mysqli客户端设置的字符集不相同
 例如佬这个汉字的UTF-8编码是xE4xBDxAC
 我们依次使用xE4,xE4xBD,xE4xBDxAC作为参数传入
