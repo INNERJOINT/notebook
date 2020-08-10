@@ -1,4 +1,4 @@
-## SQL注入
+# SQL注入
 ### 判断能否sql注入
 * 提交单引号 ```id=1'```
 * and大法和or大法 
@@ -17,9 +17,11 @@ id=1+1
 ### Union all
 union all只是简单的将两个结果合并后就返回。这样，如果返回的两个结果集中有重复的数据，那么返回的结果集就会包含重复的数据了。
 
-### 显错注入和盲注
-*  显错注入，即带回显错误提示，可利用联合查询union select来爆出更多信息。
-*  盲注，没有任何信息返回，一般可以利用时间sleep()来判断查询成功与否，使用and来盲猜数据库名，表名
+## 显错注入
+1. UPDATEXML (XML_document, XPath_string, new_value); <br>
+例子?id=1'+updatexml(1,concat(0x7e,(SELECT version()),0x7e),1)%23
+##  盲注，
+没有任何信息返回，一般可以利用时间sleep()来判断查询成功与否，使用and来盲猜数据库名，表名
 ### MSSQL
 *  is_srvrolemember ('sysadmin')函数是用来判断当前的数据用户是否属于管理员组权限
 ---
