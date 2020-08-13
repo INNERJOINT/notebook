@@ -1,27 +1,54 @@
 # SQL注入
-### 判断能否sql注入
-* 提交单引号 ```id=1'```
-* and大法和or大法 
+---
+## 类别
+### 联合查询注入
+### 报错注入
+1. updatexml()
+2. floor()
+3. exp()
+### Bool盲注
+### 时间盲注
+1. sleep()
+2. benchmark()
+### 二次注入
+---
+## 注入点
+#### GET参数
+#### POST注入
+#### User-Agent注入
+#### Cookies注入
+---
+## 绕过
+### 过滤关键字
+1. 无递归过滤时select --> selselectect
+2. 大小写过滤select --> SelECt
+3. 十六进制过滤select --> selec\x74
+4. 双重url编码过滤 or --> %25%36%66%25%37%32
+### 过滤空格
+1. 注释绕过 #、--、//、/**/、；%00
 ```
-id=2 and 1=1
-id=2 or 1=1 
+select/**/username/**/from/**/user
 ```
-* 加减法
+2. URl编码绕过
 ```
-id=1+1
+通过二次url编码绕过，%20 --> %2520
 ```
-### 数据库权限判断
+3. 通过空白字符绕过，在数据库中存在一些空白字符
+4. 特殊符号(反引号，加号)
+```
+select`user`,password`from..
+```
+5. 科学计数法
+```
+select user,password from users where user_id=0e1union select 1,2...
+```
 
+---
 ### 猜字段个数
 * 在注入点后面加order by x
 ### Union all
 union all只是简单的将两个结果合并后就返回。这样，如果返回的两个结果集中有重复的数据，那么返回的结果集就会包含重复的数据了。
 
-## 显错注入
-1. UPDATEXML (XML_document, XPath_string, new_value); <br>
-例子?id=1'+updatexml(1,concat(0x7e,(SELECT version()),0x7e),1)%23
-##  盲注，
-没有任何信息返回，一般可以利用时间sleep()来判断查询成功与否，使用and来盲猜数据库名，表名
 ### MSSQL
 *  is_srvrolemember ('sysadmin')函数是用来判断当前的数据用户是否属于管理员组权限
 ---
